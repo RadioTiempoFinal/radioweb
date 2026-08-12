@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIEMPO FINAL MEDIOS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="player-container" id="player">
+    <div class="player-bg" id="playerBg"></div>
+    <div class="player-overlay"></div>
+
+    <div class="player-card">
+        <div class="top-bar">
+            <div class="brand">
+                <i class="fa-solid fa-moon brand-icon"></i>
+                <span class="brand-name">TIEMPO<small>FINAL</small></span>
+            </div>
+            <div class="top-controls">
+                <button id="historyToggleBtn" class="btn-icon" title="Historial de canciones">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="station-selector-wrapper">
+            <i class="fa-solid fa-radio selector-icon"></i>
+            <select id="stationSelect" class="station-select"></select>
+        </div>
+
+        <div class="history-panel" id="historyPanel">
+            <div class="history-header">
+                <h4><i class="fa-solid fa-list-ul"></i> Recientemente sonadas</h4>
+                <button id="closeHistoryBtn" class="btn-close">&times;</button>
+            </div>
+            <ul class="history-list" id="historyList"></ul>
+        </div>
+
+        <div class="cover-wrapper">
+            <img id="albumArt" alt="Carátula" class="album-art">
+            <div class="live-badge"><i class="fa-solid fa-circle"></i> EN VIVO</div>
+        </div>
+
+        <div class="track-info">
+            <h2 id="songTitle" class="song-title">Cargando canción...</h2>
+            <h3 id="artistName" class="artist-name">Cargando artista...</h3>
+            <span id="stationTitle" class="station-tag">Nombre Emisora</span>
+        </div>
+
+        <!-- Metadata adicional -->
+        <div class="metadata-card" id="metadataCard">
+            <div class="metadata-header">
+                <span><i class="fa-solid fa-circle-info"></i> Información de la transmisión</span>
+                <span id="metadataStatus" class="metadata-status">Conectando...</span>
+            </div>
+
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Canción</span>
+                    <strong id="metaSong">—</strong>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Artista</span>
+                    <strong id="metaArtist">—</strong>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Álbum</span>
+                    <strong id="metaAlbum">—</strong>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Género</span>
+                    <strong id="metaGenre">—</strong>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Oyentes</span>
+                    <strong id="metaListeners">—</strong>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Bitrate</span>
+                    <strong id="metaBitrate">—</strong>
+                </div>
+            </div>
+
+            <div class="metadata-extra" id="metadataExtra"></div>
+            <div class="metadata-updated" id="metadataUpdated">Última actualización: —</div>
+        </div>
+
+        <div class="visualizer-container">
+            <canvas id="audioVisualizer"></canvas>
+        </div>
+
+        <div class="controls">
+            <button id="prevBtn" class="btn-secondary" title="Emisora anterior">
+                <i class="fa-solid fa-backward-step"></i>
+            </button>
+            <button id="playBtn" class="btn-play" title="Reproducir / Pausar">
+                <i class="fa-solid fa-play" id="playIcon"></i>
+            </button>
+            <button id="nextBtn" class="btn-secondary" title="Siguiente emisora">
+                <i class="fa-solid fa-forward-step"></i>
+            </button>
+        </div>
+
+        <div class="volume-container">
+            <button id="muteBtn" class="btn-volume" title="Silenciar">
+                <i class="fa-solid fa-volume-high" id="volumeIcon"></i>
+            </button>
+            <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.8">
+        </div>
+    </div>
+
+    <audio id="radioAudio" crossorigin="anonymous" preload="none"></audio>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/player.js"></script>
+</body>
+</html>
