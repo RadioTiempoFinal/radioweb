@@ -22,7 +22,7 @@ const RADIO_CONFIG = {
             name: "Radio Tiempo Final",
             subtitle: "Palabras de Vida a tu Corazón",
             streamUrl: "https://sonic.mediacp.eu:8126/stream",
-            apiUrl: "api/metadata.php?station=radio_tiempo_final",
+            apiUrl: "https://sonic.mediacp.eu/cp/get_info.php?p=8126",
             apiType: "sonic"
         },
         {
